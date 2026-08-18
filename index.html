@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Racket Rivals</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         MAIN MENU
+    ================================== -->
+
+    <div id="menu">
+
+        <div class="bird bird1">🕊</div>
+
+        <div class="cloud cloud1"></div>
+
+
+        <!-- Heart Bar -->
+
+        <div id="heartBar">
+
+            <div id="heartFill"></div>
+
+            <div id="heartIcon">❤</div>
+
+        </div>
+
+
+        <!-- Title -->
+
+        <div id="titleContainer">
+
+            <div class="sparkle s1">✨</div>
+
+            <div class="sparkle s2">⭐</div>
+
+            <div class="sparkle s3">✨</div>
+
+            <div class="sparkle s4">⭐</div>
+
+
+            <h1 id="title">
+
+                RACKET <br>
+
+                RIVALS
+
+            </h1>
+
+        </div>
+
+
+        <!-- Start Button -->
+
+        <button id="startBtn">
+
+            START
+
+        </button>
+
+
+        <!-- SETTINGS BUTTON -->
+
+<button id="settingBtn">
+
+    ⚙ SETTINGS
+
+</button>
+
+    </div>
+
+<!-- =================================
+     SETTINGS PANEL
+================================== -->
+
+<div id="settingsPanel">
+
+    <div class="settingsCard">
+
+        <!-- Dashed Inner Border -->
+        <div class="settingsInnerBorder"></div>
+
+        <!-- Top Left Paw Badge with Bow -->
+        <div class="settingsPawBadge">
+            <svg viewBox="0 0 60 70" class="badgeSvg">
+                <!-- Outer badge circle -->
+                <circle cx="30" cy="28" r="23" fill="#ffffff" stroke="#ffaec9" stroke-width="3.5"/>
+                <!-- Paw pad -->
+                <path d="M30 23 C25.5 23 23 27 23 31 C23 35 26 38 30 38 C34 38 37 35 37 31 C37 27 34.5 23 30 23 Z" fill="#ff71a5"/>
+                <ellipse cx="20" cy="20" rx="2.5" ry="3.5" fill="#ff71a5" transform="rotate(-20 20 20)"/>
+                <ellipse cx="26.5" cy="16.5" rx="2.5" ry="3.8" fill="#ff71a5" transform="rotate(-8 26.5 16.5)"/>
+                <ellipse cx="33.5" cy="16.5" rx="2.5" ry="3.8" fill="#ff71a5" transform="rotate(8 33.5 16.5)"/>
+                <ellipse cx="40" cy="20" rx="2.5" ry="3.5" fill="#ff71a5" transform="rotate(20 40 20)"/>
+                <!-- Bow ribbon under badge -->
+                <g transform="translate(30, 52)">
+                    <path d="M-2 -2 Q-12 -9 -14 -2 Q-12 5 -2 2 Z" fill="#ff6ea9" stroke="#ffffff" stroke-width="1.5"/>
+                    <path d="M2 -2 Q12 -9 14 -2 Q12 5 2 2 Z" fill="#ff6ea9" stroke="#ffffff" stroke-width="1.5"/>
+                    <ellipse cx="0" cy="0" rx="3.5" ry="3" fill="#ff4d91" stroke="#ffffff" stroke-width="1"/>
+                </g>
+            </svg>
+        </div>
+
+        <!-- Close X Button -->
+        <button id="closeSettingsBtn" class="settingsClose" aria-label="Close Settings">
+            ✕
+        </button>
+
+        <!-- Header / Title -->
+        <div class="settingsHeader">
+            <div class="headerTitleRow">
+                <span class="headerDecoLeft">♥ ✧</span>
+                <h2>SETTINGS</h2>
+                <span class="headerDecoRight">✦ ✧</span>
+            </div>
+            <div class="headerHeartSub">♥</div>
+        </div>
+
+        <!-- Settings List -->
+        <div class="settingsList">
+
+            <!-- ROW 1: MUSIC -->
+            <div class="settingRow">
+                <div class="settingLabelGroup">
+                    <div class="settingIconBadge iconMusic">
+                        <svg viewBox="0 0 24 24" width="22" height="22">
+                            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" fill="#ff5e9c"/>
+                        </svg>
+                    </div>
+                    <span class="settingText">MUSIC</span>
+                    <span class="miniDecoHeart">♥</span>
+                </div>
+                <button id="musicToggle" class="settingPillToggle">ON</button>
+            </div>
+
+            <!-- ROW 2: MUSIC VOLUME -->
+            <div class="settingRow">
+                <div class="settingLabelGroup">
+                    <div class="settingIconBadge iconVolume">
+                        <svg viewBox="0 0 24 24" width="22" height="22">
+                            <path d="M12 2C6.48 2 2 6.48 2 12v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-3v8h3c1.66 0 3-1.34 3-3v-7c0-5.52-4.48-10-10-10z" fill="#ff5e9c"/>
+                        </svg>
+                    </div>
+                    <div class="settingTextCol">
+                        <span>MUSIC</span>
+                        <span>VOLUME</span>
+                    </div>
+                    <span class="miniDecoSparkle">✧</span>
+                </div>
+                <div class="settingVolumeGroup">
+                    <input
+                        type="range"
+                        id="musicVolume"
+                        min="0"
+                        max="1"
+                        step="0.01"
+                        value="0.35"
+                        aria-label="Music Volume"
+                    >
+                    <span class="volHeart">♥</span>
+                </div>
+            </div>
+
+            <!-- ROW 3: SOUND EFFECTS -->
+            <div class="settingRow">
+                <div class="settingLabelGroup">
+                    <div class="settingIconBadge iconSound">
+                        <svg viewBox="0 0 24 24" width="22" height="22">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" fill="#9d80c7"/>
+                        </svg>
+                    </div>
+                    <div class="settingTextCol">
+                        <span>SOUND</span>
+                        <span>EFFECTS</span>
+                    </div>
+                </div>
+                <button id="soundToggle" class="settingPillToggle">ON</button>
+            </div>
+
+        </div>
+
+        <!-- Bottom Cloud Scallop Trim -->
+        <div class="settingsScallopTrim"></div>
+        <div class="cornerCloudLeft"></div>
+        <div class="cornerCloudRight"></div>
+
+        <!-- Bottom Center Mascot Character -->
+        <div class="settingsMascot">
+            <span class="mascotHeartLeft">♥</span>
+            <svg viewBox="0 0 100 80" class="mascotSvg">
+                <!-- Left Ear -->
+                <circle cx="28" cy="22" r="14" fill="#ffffff" stroke="#ffaec9" stroke-width="4"/>
+                <circle cx="28" cy="22" r="8" fill="#ffb8d4"/>
+                <!-- Right Ear -->
+                <circle cx="72" cy="22" r="14" fill="#ffffff" stroke="#ffaec9" stroke-width="4"/>
+                <circle cx="72" cy="22" r="8" fill="#ffb8d4"/>
+                <!-- Head -->
+                <ellipse cx="50" cy="46" rx="36" ry="28" fill="#ffffff" stroke="#ffaec9" stroke-width="4"/>
+                <!-- Eyes -->
+                <ellipse cx="38" cy="44" rx="4" ry="4.5" fill="#36222b"/>
+                <circle cx="36.5" cy="42" r="1.5" fill="#ffffff"/>
+                <ellipse cx="62" cy="44" rx="4" ry="4.5" fill="#36222b"/>
+                <circle cx="60.5" cy="42" r="1.5" fill="#ffffff"/>
+                <!-- Snout / Nose -->
+                <ellipse cx="50" cy="49" rx="3" ry="2.2" fill="#36222b"/>
+                <path d="M47 52 Q50 55 53 52" fill="none" stroke="#36222b" stroke-width="2" stroke-linecap="round"/>
+                <!-- Blush Cheeks -->
+                <ellipse cx="30" cy="50" rx="6" ry="3.5" fill="#ff9ec4" opacity="0.85"/>
+                <ellipse cx="70" cy="50" rx="6" ry="3.5" fill="#ff9ec4" opacity="0.85"/>
+                <!-- Bow Tie -->
+                <g transform="translate(50, 70)">
+                    <path d="M-2 -2 Q-14 -10 -16 -2 Q-14 6 -2 2 Z" fill="#ff6ea9" stroke="#ffffff" stroke-width="1.5"/>
+                    <path d="M2 -2 Q14 -10 16 -2 Q14 6 2 2 Z" fill="#ff6ea9" stroke="#ffffff" stroke-width="1.5"/>
+                    <ellipse cx="0" cy="0" rx="4" ry="3.5" fill="#ff4d91" stroke="#ffffff" stroke-width="1"/>
+                </g>
+            </svg>
+            <span class="mascotHeartRight">♥</span>
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- =================================
+         DIFFICULTY SCREEN
+    ================================== -->
+
+    <div id="difficultyScreen">
+
+        <h2>CHOOSE DIFFICULTY</h2>
+
+
+        <div id="difficultyButtons">
+
+            <button id="easyBtn">
+
+                EASY
+
+                <span>🌸 Relaxed</span>
+
+            </button>
+
+
+            <button id="mediumBtn">
+
+                MEDIUM
+
+                <span>⭐ Balanced</span>
+
+            </button>
+
+
+            <button id="hardBtn">
+
+                HARD
+
+                <span>🔥 Challenging</span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================
+         GAME CANVAS
+    ================================== -->
+
+    <canvas id="gameCanvas"></canvas>
+
+<!-- =================================
+     PAUSE BUTTON
+================================== -->
+
+<button id="pauseBtn" aria-label="Pause">
+    <span></span>
+    <span></span>
+</button>
+
+
+<!-- =================================
+     PAUSE MENU
+================================== -->
+
+<div id="pauseMenu">
+
+    <div class="pauseCard">
+
+        <div class="pauseSparkle sparkleLeft">✦</div>
+        <div class="pauseSparkle sparkleRight">✦</div>
+
+        <h2>PAUSED</h2>
+
+        <p class="pauseText">
+            Take a little break! ♡
+        </p>
+
+        <div class="pauseButtons">
+
+            <button id="resumeBtn">
+                <span>▶</span>
+                RESUME
+            </button>
+
+            <button id="homeBtn">
+                <span>⌂</span>
+                MAIN MENU
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =================================
+     GAME OVER / MATCH RESULT SCREEN
+================================== -->
+
+<div id="gameOverModal">
+
+    <!-- Confetti Canvas (behind result card) -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <div class="resultCard">
+
+        <!-- Dashed Inner Border -->
+        <div class="resultInnerBorder"></div>
+
+        <!-- Top Center Ribbon Bow with Heart Gem -->
+        <div class="resultBowBadge">
+            <svg viewBox="0 0 120 70" class="resultBowSvg">
+                <!-- Bow Left Loop -->
+                <path d="M54 28 C35 10 14 18 20 34 C26 48 48 38 54 32 Z" fill="#ff6ea9" stroke="#ffffff" stroke-width="2.5"/>
+                <path d="M48 27 C36 17 25 21 28 32 C31 40 44 34 48 29 Z" fill="#ff9ec4" opacity="0.6"/>
+                <!-- Bow Right Loop -->
+                <path d="M66 28 C85 10 106 18 100 34 C94 48 72 38 66 32 Z" fill="#ff6ea9" stroke="#ffffff" stroke-width="2.5"/>
+                <path d="M72 27 C84 17 95 21 92 32 C89 40 76 34 72 29 Z" fill="#ff9ec4" opacity="0.6"/>
+                <!-- Left Ribbon Tail -->
+                <path d="M50 36 C42 48 34 60 28 66 C36 64 45 61 54 44 Z" fill="#ff5a9c" stroke="#ffffff" stroke-width="2"/>
+                <!-- Right Ribbon Tail -->
+                <path d="M70 36 C78 48 86 60 92 66 C84 64 75 61 66 44 Z" fill="#ff5a9c" stroke="#ffffff" stroke-width="2"/>
+                <!-- Center Heart Badge -->
+                <g transform="translate(60, 30)">
+                    <ellipse cx="0" cy="0" rx="16" ry="15" fill="#ffffff" stroke="#ffaec9" stroke-width="2.5"/>
+                    <path d="M0 8 C-7 2 -11 -4 -7 -9 C-3 -13 0 -9 0 -6 C0 -9 3 -13 7 -9 C11 -4 7 2 0 8 Z" fill="#ff4d91"/>
+                    <circle cx="-3" cy="-7" r="1.5" fill="#ffffff"/>
+                </g>
+            </svg>
+        </div>
+
+        <!-- Result Header -->
+        <div class="resultHeader">
+            <div class="resultTitleRow">
+                <span class="resultDeco sparkleLeft">✦</span>
+                <h2 id="resultTitle">YOU WIN!</h2>
+                <span class="resultDeco sparkleRight">✦</span>
+            </div>
+            <p id="resultSubtitle">Great Match!</p>
+            <div class="resultHeartSub">♥</div>
+        </div>
+
+        <!-- Score Summary -->
+        <div class="resultScoreBadge">
+            <div class="scoreTeam">
+                <span class="teamLabel">YOU</span>
+                <span id="resultPlayerScore" class="scoreNum">5</span>
+            </div>
+            <span class="scoreDivider">─</span>
+            <div class="scoreTeam">
+                <span id="resultAiScore" class="scoreNum">1</span>
+                <span class="teamLabel">AI</span>
+            </div>
+        </div>
+
+        <!-- Result Action Buttons -->
+        <div class="resultButtons">
+            <button id="resultRestartBtn" class="resultBtn">
+                <span class="btnHeart">♥</span>
+                <span>Restart</span>
+                <span class="btnHeart">♥</span>
+            </button>
+            <button id="resultMenuBtn" class="resultBtn">
+                <span class="btnHeart">♥</span>
+                <span>Main Menu</span>
+                <span class="btnHeart">♥</span>
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

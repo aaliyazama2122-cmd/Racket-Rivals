@@ -1,0 +1,2095 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    overflow:hidden;
+    font-family:Arial;
+
+}
+
+#menu{
+
+    width:100vw;
+    height:100vh;
+
+    background:url("images/background.png");
+
+    background-size:cover;
+    background-position:center;
+
+    position:relative;
+
+}
+
+/* ===========================
+      TITLE
+=========================== */
+
+#title{
+
+    position:absolute;
+
+    top:20px;      /* was 90px */
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-family:'Press Start 2P';
+
+    font-size:70px;
+
+    color:white;
+
+    text-align:center;
+
+    line-height:90px;
+
+    text-shadow:
+
+    6px 6px 0 #d8d8d8,
+
+    12px 12px 18px rgba(0,0,0,.3);
+
+    animation:
+
+titleFloat 3s ease-in-out infinite,
+
+titleGlow 2s ease-in-out infinite;
+
+}
+
+@keyframes titleGlow{
+
+    0%{
+
+        text-shadow:
+
+        6px 6px #ddd,
+
+        0 0 5px white;
+
+    }
+
+    50%{
+
+        text-shadow:
+
+        6px 6px #ddd,
+
+        0 0 25px white;
+
+    }
+
+    100%{
+
+        text-shadow:
+
+        6px 6px #ddd,
+
+        0 0 5px white;
+
+    }
+
+}
+
+@keyframes titleFloat{
+
+    0%{
+
+        transform:translateX(-50%) translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateX(-50%) translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateX(-50%) translateY(0);
+
+    }
+
+}
+
+/* ===========================
+      START BUTTON
+=========================== */
+
+#startBtn{
+
+    position:absolute;
+
+    left:50%;
+
+    top:60%;
+
+    transform:translate(-50%,-50%);
+
+    width:470px;
+
+    height:120px;
+
+    border:none;
+
+    border-radius:35px;
+
+    background:linear-gradient(#ffffff,#ffe8f2);
+
+    font-family:'Press Start 2P';
+
+    font-size:40px;
+
+    color:#ff5ea8;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 0 #f2bdd3,
+        0 15px 30px rgba(0,0,0,.25);
+
+    animation:buttonFloat 2.5s ease-in-out infinite;
+
+    transition:.2s;
+
+}
+
+@keyframes buttonFloat{
+
+    0%{
+
+        transform:translate(-50%,-50%);
+
+    }
+
+    50%{
+
+        transform:translate(-50%,-57%);
+
+    }
+
+    100%{
+
+        transform:translate(-50%,-50%);
+
+    }
+
+}
+
+#startBtn:hover{
+
+    transform:translate(-50%,-55%) scale(1.04);
+
+}
+
+#startBtn:active{
+
+    transform:translate(-50%,-47%);
+
+    box-shadow:
+
+    0 4px 0 #f2bdd3;
+
+}
+
+/* ===========================
+      BOTTOM BUTTONS
+=========================== */
+
+#bottomButtons{
+
+    position:absolute;
+
+    bottom:28px;
+
+    left:20px;
+
+}
+
+#bottomButtons button{
+
+    width:180px;
+
+    height:68px;
+
+    margin-right:18px;
+
+    border:none;
+
+    border-radius:35px;
+
+    background:linear-gradient(#fff,#ffe8f2);
+
+    color:#ff5ea8;
+
+    font-family:'Press Start 2P';
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    box-shadow:
+
+    0 6px 0 #f2bdd3,
+
+    0 10px 20px rgba(0,0,0,.2);
+
+    transition:.2s;
+
+}
+
+#bottomButtons button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+#bottomButtons button:active{
+
+    transform:translateY(3px);
+
+}
+
+/* ===========================
+      CANVAS
+=========================== */
+
+canvas{
+
+    display:none;
+
+}
+
+#heartBar{
+
+    position:absolute;
+
+    top:25px;
+
+    left:25px;
+
+    width:260px;
+
+    height:35px;
+
+    background:#d8d8d8;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.3);
+
+}
+
+#heartFill{
+
+    width:80px;
+
+    height:100%;
+
+    background:linear-gradient(#ff8fc8,#ff5ea8);
+
+    animation:heartMove 2s ease-in-out infinite alternate;
+
+}
+
+#heartIcon{
+
+    position:absolute;
+
+    left:10px;
+
+    top:-8px;
+
+    font-size:34px;
+
+    color:#ff5ea8;
+
+}
+
+@keyframes heartMove{
+
+    from{
+
+        width:60px;
+
+    }
+
+    to{
+
+        width:110px;
+
+    }
+
+}
+
+.bird{
+
+    position:absolute;
+
+    font-size:22px;
+
+    animation:fly 18s linear infinite;
+
+}
+
+.bird1{
+
+    top:70px;
+
+}
+
+.bird2{
+
+    top:120px;
+
+    animation-delay:8s;
+
+}
+
+@keyframes fly{
+
+    from{
+
+        left:-100px;
+
+    }
+
+    to{
+
+        left:110%;
+
+    }
+
+}
+
+/* =====================
+   CLOUDS
+===================== */
+
+.cloud{
+
+    position:absolute;
+
+    width:220px;
+
+    height:70px;
+
+    background:white;
+
+    border-radius:60px;
+
+    opacity:.75;
+
+}
+
+.cloud::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:80px;
+
+    height:80px;
+
+    background:white;
+
+    border-radius:50%;
+
+    left:30px;
+
+    top:-30px;
+
+}
+
+.cloud::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:95px;
+
+    height:95px;
+
+    background:white;
+
+    border-radius:50%;
+
+    right:25px;
+
+    top:-40px;
+
+}
+
+.cloud1{
+
+    top:70px;
+
+    left:-250px;
+
+    animation:moveCloud 45s linear infinite;
+
+}
+
+.cloud2{
+
+    top:160px;
+
+    left:-450px;
+
+    transform:scale(.8);
+
+    animation:moveCloud 60s linear infinite;
+
+}
+
+.cloud3{
+
+    top:260px;
+
+    left:-600px;
+
+    transform:scale(.6);
+
+    animation:moveCloud 75s linear infinite;
+
+}
+
+@keyframes moveCloud{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(2200px);
+
+    }
+
+}
+
+/*==========================
+    TITLE CONTAINER
+==========================*/
+
+#titleContainer{
+
+    position:absolute;
+
+    top:70px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:700px;
+
+    height:250px;
+
+}
+
+.sparkle{
+
+    position:absolute;
+
+    font-size:30px;
+
+    animation:twinkle 2s ease-in-out infinite;
+
+}
+
+.s1{
+
+    left:30px;
+
+    top:20px;
+
+}
+
+.s2{
+
+    right:40px;
+
+    top:60px;
+
+    animation-delay:.5s;
+
+}
+
+.s3{
+
+    left:120px;
+
+    bottom:10px;
+
+    animation-delay:1s;
+
+}
+
+.s4{
+
+    right:120px;
+
+    bottom:40px;
+
+    animation-delay:1.5s;
+
+}
+
+@keyframes twinkle{
+
+    0%{
+
+        transform:scale(.5);
+
+        opacity:.3;
+
+    }
+
+    50%{
+
+        transform:scale(1.3);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(.5);
+
+        opacity:.3;
+
+    }
+
+}
+
+/* ===========================
+   DIFFICULTY SCREEN
+=========================== */
+
+#difficultyScreen{
+
+    display:none;
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100vw;
+    height:100vh;
+
+    background:url("images/background.png");
+
+    background-size:cover;
+    background-position:center;
+
+    z-index:1000;
+
+    text-align:center;
+
+}
+
+
+/* DIFFICULTY TITLE */
+
+#difficultyScreen h2{
+
+    position:absolute;
+
+    top:130px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-family:'Press Start 2P';
+
+    font-size:38px;
+
+    color:white;
+
+    text-shadow:
+        5px 5px 0 #d8d8d8,
+        0 8px 15px rgba(0,0,0,.25);
+
+}
+
+
+/* BUTTON CONTAINER */
+
+#difficultyButtons{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    display:flex;
+
+    gap:35px;
+
+}
+
+
+/* DIFFICULTY BUTTONS */
+
+#difficultyButtons button{
+
+    width:250px;
+
+    height:180px;
+
+    border:none;
+
+    border-radius:35px;
+
+    background:linear-gradient(
+        #ffffff,
+        #ffe8f2
+    );
+
+    color:#ff5ea8;
+
+    font-family:'Press Start 2P';
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 0 #f2bdd3,
+        0 15px 30px rgba(0,0,0,.25);
+
+    transition:.2s;
+
+}
+
+
+/* DESCRIPTION */
+
+#difficultyButtons button span{
+
+    display:block;
+
+    margin-top:25px;
+
+    font-family:Arial;
+
+    font-size:18px;
+
+    color:#888;
+
+}
+
+
+/* HOVER */
+
+#difficultyButtons button:hover{
+
+    transform:translateY(-10px) scale(1.04);
+
+    box-shadow:
+        0 18px 0 #f2bdd3,
+        0 20px 35px rgba(0,0,0,.25);
+
+}
+
+
+/* CLICK */
+
+#difficultyButtons button:active{
+
+    transform:translateY(5px);
+
+    box-shadow:
+        0 5px 0 #f2bdd3;
+
+}
+
+#difficultyScreen {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: url("images/background.png");
+
+    background-size: cover;
+    background-position: center;
+
+    z-index: 99999;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* =========================================
+   RACKET RIVALS — PAUSE BUTTON
+========================================= */
+
+#pauseBtn {
+    position: fixed;
+    top: 28px;
+    right: 28px;
+
+    width: 72px;
+    height: 72px;
+
+    border: 3px solid #ff9bc7;
+    border-radius: 24px;
+
+    background: rgba(255, 245, 250, 0.95);
+
+    color: #ff5ca8;
+
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 24px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 10001;
+
+    box-shadow:
+        0 5px 0 #f2b8d2,
+        0 10px 25px rgba(255, 105, 170, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* Hover */
+
+#pauseBtn:hover {
+    transform: translateY(-4px) scale(1.05);
+
+    background: #fff;
+
+    box-shadow:
+        0 8px 0 #f2b8d2,
+        0 14px 30px rgba(255, 105, 170, 0.25);
+}
+
+
+/* Click */
+
+#pauseBtn:active {
+    transform: translateY(3px);
+
+    box-shadow:
+        0 2px 0 #f2b8d2,
+        0 5px 12px rgba(255, 105, 170, 0.15);
+}
+
+
+/* =========================================
+   PAUSE OVERLAY
+========================================= */
+
+#pauseMenu {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.38);
+
+    backdrop-filter: blur(7px);
+
+    z-index: 10000;
+}
+
+
+/* =========================================
+   PAUSE CARD
+========================================= */
+
+.pauseCard {
+
+    position: relative;
+
+    width: 500px;
+
+    padding: 48px 50px 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffaff,
+            #fff0f7
+        );
+
+    border: 4px solid #ff9dcc;
+
+    border-radius: 38px;
+
+    box-shadow:
+        0 18px 45px rgba(255, 105, 170, 0.20),
+        0 5px 0 #f6c2d9,
+        inset 0 0 0 3px rgba(255,255,255,0.8);
+
+    text-align: center;
+
+    animation: pausePop 0.25s ease-out;
+}
+
+
+/* =========================================
+   PAUSED TITLE
+========================================= */
+
+.pauseCard h2 {
+
+    margin: 0 0 12px;
+
+    color: #ff5ca8;
+
+    font-family: "Press Start 2P", sans-serif;
+
+    font-size: 32px;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        3px 3px 0 #ffd6e7;
+}
+
+
+/* =========================================
+   LITTLE MESSAGE
+========================================= */
+
+.pauseText {
+
+    margin: 0 0 32px;
+
+    color: #c985a4;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   PAUSE BUTTONS
+========================================= */
+
+.pauseButtons {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+/* =========================================
+   PAUSE MENU BUTTONS
+========================================= */
+
+.pauseButtons button {
+
+    width: 310px;
+
+    height: 62px;
+
+    border: 3px solid #ff9dcc;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #ffe7f1
+        );
+
+    color: #ff5ca8;
+
+    font-family: "Press Start 2P", sans-serif;
+
+    font-size: 14px;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 #f1b6d0,
+        0 8px 18px rgba(255, 105, 170, 0.12);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+}
+
+
+/* Hover */
+
+.pauseButtons button:hover {
+
+    transform: translateY(-4px);
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #ffdce9
+        );
+
+    box-shadow:
+        0 8px 0 #f1b6d0,
+        0 12px 22px rgba(255, 105, 170, 0.18);
+}
+
+
+/* Click */
+
+.pauseButtons button:active {
+
+    transform: translateY(3px);
+
+    box-shadow:
+        0 2px 0 #f1b6d0;
+}
+
+
+/* =========================================
+   BUTTON ICON
+========================================= */
+
+.pauseButtons button span {
+
+    margin-right: 12px;
+
+    font-size: 18px;
+
+    vertical-align: middle;
+}
+
+
+/* =========================================
+   DECORATIVE SPARKLES
+========================================= */
+
+.pauseSparkle {
+
+    position: absolute;
+
+    color: #ff9dcc;
+
+    font-size: 24px;
+
+    pointer-events: none;
+
+    animation: sparkleFloat 2.5s ease-in-out infinite;
+}
+
+
+.sparkleLeft {
+
+    top: 28px;
+
+    left: 35px;
+}
+
+
+.sparkleRight {
+
+    top: 28px;
+
+    right: 35px;
+
+    animation-delay: 0.8s;
+}
+
+
+/* =========================================
+   PAUSE POP ANIMATION
+========================================= */
+
+@keyframes pausePop {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.88) translateY(10px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1) translateY(0);
+
+    }
+}
+
+
+/* =========================================
+   SPARKLE ANIMATION
+========================================= */
+
+@keyframes sparkleFloat {
+
+    0%, 100% {
+
+        transform: translateY(0) scale(1);
+
+        opacity: 0.65;
+    }
+
+    50% {
+
+        transform: translateY(-5px) scale(1.12);
+
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   CUTE PAUSE BUTTON
+========================================= */
+
+#pauseBtn {
+
+    position: fixed;
+
+    top: 25px;
+    right: 25px;
+
+    width: 76px;
+    height: 76px;
+
+    border: 3px solid #ff8fc0;
+
+    border-radius: 24px;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #ffe8f2
+    );
+
+    cursor: pointer;
+
+    z-index: 10001;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    box-shadow:
+
+        0 7px 0 #f2bdd3,
+
+        0 12px 25px rgba(255,105,170,.22);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+}
+
+
+/* Pause bars */
+
+#pauseBtn span {
+
+    display: block;
+
+    width: 7px;
+    height: 30px;
+
+    border-radius: 5px;
+
+    background: #ff6eae;
+
+}
+
+
+/* Hover */
+
+#pauseBtn:hover {
+
+    transform: translateY(-3px) scale(1.05);
+
+    background: #ffffff;
+
+    box-shadow:
+
+        0 10px 0 #f2bdd3,
+
+        0 15px 28px rgba(255,105,170,.25);
+
+}
+
+
+/* Click */
+
+#pauseBtn:active {
+
+    transform: translateY(4px);
+
+    box-shadow:
+
+        0 3px 0 #f2bdd3,
+
+        0 6px 12px rgba(255,105,170,.15);
+
+}
+
+/* =================================
+   SETTINGS BUTTON
+================================= */
+
+#settingBtn {
+
+    position: absolute;
+
+    bottom: 35px;
+    right: 35px;
+
+    width: 230px;
+    height: 70px;
+
+    border: none;
+    border-radius: 35px;
+
+    background: linear-gradient(
+        to bottom,
+        #fffaff,
+        #ffe8f2
+    );
+
+    color: #ff5ea8;
+
+    font-family: 'Press Start 2P', Arial, sans-serif;
+    font-size: 17px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 0 #f4b5d0,
+        0 12px 20px rgba(255, 143, 192, 0.22);
+
+    z-index: 1000;
+
+    transition: all 0.18s ease;
+}
+
+
+/* Hover */
+
+#settingBtn:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 11px 0 #f4b5d0,
+        0 15px 25px rgba(255, 143, 192, 0.28);
+
+}
+
+
+/* Click */
+
+#settingBtn:active {
+
+    transform: translateY(5px);
+
+    box-shadow:
+        0 3px 0 #f4b5d0,
+        0 6px 12px rgba(255, 143, 192, 0.18);
+
+}
+
+/* =====================================================
+   CUTE SETTINGS PANEL (REFERENCE REDESIGN)
+   ===================================================== */
+
+#settingsPanel {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+    /* Soft semi-transparent blur backdrop matching reference court background */
+    background: rgba(175, 215, 205, 0.30);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =====================================================
+   MAIN SETTINGS CARD
+   ===================================================== */
+
+.settingsCard {
+    position: relative;
+    width: 560px;
+    max-width: 92vw;
+    padding: 34px 38px 48px 38px;
+    background: linear-gradient(180deg, #ffffff 0%, #fff3f8 100%);
+    border: 6px solid #ffaec9;
+    border-radius: 36px;
+    box-shadow:
+        0 18px 48px rgba(255, 120, 175, 0.35),
+        0 8px 0 #f5a3c4,
+        inset 0 0 0 3px #ffffff;
+    text-align: center;
+    animation: settingsPop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/* =====================================================
+   INNER DASHED BORDER
+   ===================================================== */
+
+.settingsInnerBorder {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 2.5px dashed #ffbad6;
+    border-radius: 24px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* =====================================================
+   TOP LEFT PAW BADGE WITH BOW
+   ===================================================== */
+
+.settingsPawBadge {
+    position: absolute;
+    top: 18px;
+    left: 22px;
+    width: 48px;
+    height: 56px;
+    z-index: 10;
+    filter: drop-shadow(0 3px 6px rgba(255, 130, 180, 0.25));
+    animation: badgeFloat 3s ease-in-out infinite alternate;
+}
+
+.settingsPawBadge .badgeSvg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+/* =====================================================
+   CLOSE X BUTTON (TOP RIGHT CIRCLE)
+   ===================================================== */
+
+#closeSettingsBtn {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 3.5px solid #ffffff;
+    background: linear-gradient(145deg, #ffa2c8, #ff5e9a);
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow:
+        0 4px 12px rgba(255, 80, 145, 0.35),
+        0 3px 0 #e65287;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+#closeSettingsBtn:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow:
+        0 6px 16px rgba(255, 80, 145, 0.45),
+        0 4px 0 #e65287;
+    background: linear-gradient(145deg, #ffb0d2, #ff6fa5);
+}
+
+#closeSettingsBtn:active {
+    transform: scale(0.94) translateY(2px);
+    box-shadow:
+        0 2px 6px rgba(255, 80, 145, 0.25),
+        0 1px 0 #e65287;
+}
+
+
+/* =====================================================
+   SETTINGS TITLE & HEADER
+   ===================================================== */
+
+.settingsHeader {
+    position: relative;
+    margin-bottom: 18px;
+    z-index: 2;
+}
+
+.headerTitleRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.settingsHeader h2 {
+    margin: 0;
+    color: #ff5596;
+    font-family: "Press Start 2P", cursive, sans-serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    text-shadow: 2.5px 2.5px 0 #ffd0e3;
+}
+
+.headerDecoLeft,
+.headerDecoRight {
+    color: #ff85b6;
+    font-size: 13px;
+    letter-spacing: 2px;
+    animation: sparkleFloat 2.5s ease-in-out infinite alternate;
+}
+
+.headerDecoRight {
+    animation-delay: 1.2s;
+}
+
+.headerHeartSub {
+    color: #ff7ea9;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+
+/* =====================================================
+   SETTINGS ROWS CONTAINER
+   ===================================================== */
+
+.settingsList {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    z-index: 2;
+}
+
+.settingRow {
+    background: #ffffff;
+    border: 2.5px solid #ffd4e5;
+    border-radius: 20px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(255, 170, 200, 0.12);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.settingRow:hover {
+    border-color: #ffb8d6;
+    box-shadow: 0 6px 18px rgba(255, 150, 190, 0.2);
+    transform: translateY(-1px);
+}
+
+.settingLabelGroup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* Cute rounded icon badges */
+
+.settingIconBadge {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: #fff0f7;
+    border: 1.5px solid #ffccd9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.settingIconBadge.iconSound {
+    background: #f7f2ff;
+    border-color: #e0d4f5;
+}
+
+.settingText {
+    font-family: "Press Start 2P", monospace;
+    font-size: 12px;
+    color: #4b3658;
+    letter-spacing: 0.5px;
+}
+
+.settingTextCol {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-family: "Press Start 2P", monospace;
+    font-size: 9.5px;
+    color: #4b3658;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.miniDecoHeart {
+    color: #ff75a6;
+    font-size: 11px;
+    margin-left: 2px;
+}
+
+.miniDecoSparkle {
+    color: #79cbff;
+    font-size: 11px;
+    margin-left: 2px;
+}
+
+
+/* =====================================================
+   ROUNDED PILL TOGGLE SWITCH (ON / OFF)
+   ===================================================== */
+
+.settingPillToggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 88px;
+    height: 38px;
+    padding: 0 6px 0 12px;
+    border-radius: 19px;
+    border: 2.5px solid #ff92c2;
+    background: #fff5fa;
+    color: #ff5592;
+    font-family: "Press Start 2P", cursive, sans-serif;
+    font-size: 10px;
+    cursor: pointer;
+    box-shadow:
+        0 3px 0 #ffb4d2,
+        0 4px 8px rgba(255, 100, 160, 0.15);
+    transition: all 0.18s ease;
+    user-select: none;
+}
+
+.settingPillToggle::after {
+    content: "♥";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff71a5, #ff4c8b);
+    color: #ffffff;
+    font-size: 13px;
+    box-shadow: 0 2px 5px rgba(255, 80, 140, 0.35);
+    flex-shrink: 0;
+    transition: all 0.18s ease;
+}
+
+.settingPillToggle:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow:
+        0 5px 0 #ffb4d2,
+        0 6px 12px rgba(255, 100, 160, 0.22);
+}
+
+.settingPillToggle:active {
+    transform: translateY(2px);
+    box-shadow:
+        0 1px 0 #ffb4d2,
+        0 2px 4px rgba(255, 100, 160, 0.12);
+}
+
+
+/* OFF STATE TOGGLE */
+
+.settingPillToggle.off {
+    border-color: #c7b6df;
+    background: #f8f4fc;
+    color: #8c7aa8;
+    box-shadow:
+        0 3px 0 #d0bee5,
+        0 4px 8px rgba(160, 130, 210, 0.15);
+    padding: 0 6px 0 10px;
+}
+
+.settingPillToggle.off::after {
+    background: linear-gradient(135deg, #b8a2db, #9a80c9);
+    box-shadow: 0 2px 5px rgba(150, 120, 200, 0.35);
+}
+
+.settingPillToggle.off:hover {
+    background: #ffffff;
+    box-shadow:
+        0 5px 0 #d0bee5,
+        0 6px 12px rgba(160, 130, 210, 0.22);
+}
+
+
+/* =====================================================
+   VOLUME SLIDER WITH CUTE PAW HANDLE
+   ===================================================== */
+
+.settingVolumeGroup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#musicVolume {
+    --vol-percent: 35%;
+    width: 160px;
+    height: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: linear-gradient(to right, #ff71a5 var(--vol-percent), #ffd4e5 var(--vol-percent));
+    border: 1.5px solid #ffaec9;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.1s ease;
+}
+
+/* WebKit Paw Thumb */
+#musicVolume::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="%23ff4c8b" flood-opacity="0.35"/></filter></defs><g filter="url(%23s)"><path d="M20 18 C14.5 18 12 23 12 27 C12 31.5 15.5 35 20 35 C24.5 35 28 31.5 28 27 C28 23 25.5 18 20 18 Z" fill="%23ffffff" stroke="%23ff71a5" stroke-width="2.5"/><path d="M20 20.5 C16 20.5 14 24 14 27 C14 30.5 16.5 33 20 33 C23.5 33 26 30.5 26 27 C26 24 24 20.5 20 20.5 Z" fill="%23ff71a5"/><ellipse cx="10" cy="15" rx="3.5" ry="4.5" fill="%23ffffff" stroke="%23ff71a5" stroke-width="2" transform="rotate(-25 10 15)"/><ellipse cx="10" cy="15" rx="2.2" ry="3.2" fill="%23ff71a5" transform="rotate(-25 10 15)"/><ellipse cx="16.5" cy="11.5" rx="3.5" ry="4.8" fill="%23ffffff" stroke="%23ff71a5" stroke-width="2" transform="rotate(-8 16.5 11.5)"/><ellipse cx="16.5" cy="11.5" rx="2.2" ry="3.5" fill="%23ff71a5" transform="rotate(-8 16.5 11.5)"/><ellipse cx="23.5" cy="11.5" rx="3.5" ry="4.8" fill="%23ffffff" stroke="%23ff71a5" stroke-width="2" transform="rotate(8 23.5 11.5)"/><ellipse cx="23.5" cy="11.5" rx="2.2" ry="3.5" fill="%23ff71a5" transform="rotate(8 23.5 11.5)"/><ellipse cx="30" cy="15" rx="3.5" ry="4.5" fill="%23ffffff" stroke="%23ff71a5" stroke-width="2" transform="rotate(25 30 15)"/><ellipse cx="30" cy="15" rx="2.2" ry="3.2" fill="%23ff71a5" transform="rotate(25 30 15)"/></g></svg>');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+#musicVolume::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+}
+
+/* Firefox Paw Thumb */
+#musicVolume::-moz-range-thumb {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="%23ff4c8b" flood-opacity="0.35"/></filter></defs><g filter="url(%23s)"><path d="M20 18 C14.5 18 12 23 12 27 C12 31.5 15.5 35 20 35 C24.5 35 28 31.5 28 27 C28 23 25.5 18 20 18 Z" fill="%23ffffff" stroke="%23ff71a5" stroke-width="2.5"/><path d="M20 20.5 C16 20.5 14 24 14 27 C14 30.5 16.5 33 20 33 C23.5 33 26 30.5 26 27 C26 24 24 20.5 20 20.5 Z" fill="%23ff71a5"/><ellipse cx="10" cy="15" rx="3.5" ry="4.5" fill="%23ffffff" stroke="%23ff71a5" stroke-width="2" transform="rotate(-25 10 15)"/><ellipse cx="10" cy="15" rx="2.2" ry="3.2" fill="%23ff71a5" transform="rotate(-25 10 15)"/><ellipse cx="16.5" cy="11.5" rx="3.5" ry="4.8" fill="%23ffffff" stroke="%23ff71a5" stroke-width="2" transform="rotate(-8 16.5 11.5)"/><ellipse cx="16.5" cy="11.5" rx="2.2" ry="3.5" fill="%23ff71a5" transform="rotate(-8 16.5 11.5)"/><ellipse cx="23.5" cy="11.5" rx="3.5" ry="4.8" fill="%23ffffff" stroke="%23ff71a5" stroke-width="2" transform="rotate(8 23.5 11.5)"/><ellipse cx="23.5" cy="11.5" rx="2.2" ry="3.5" fill="%23ff71a5" transform="rotate(8 23.5 11.5)"/><ellipse cx="30" cy="15" rx="3.5" ry="4.5" fill="%23ffffff" stroke="%23ff71a5" stroke-width="2" transform="rotate(25 30 15)"/><ellipse cx="30" cy="15" rx="2.2" ry="3.2" fill="%23ff71a5" transform="rotate(25 30 15)"/></g></svg>');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+#musicVolume::-moz-range-thumb:hover {
+    transform: scale(1.15);
+}
+
+.volHeart {
+    color: #ff75a6;
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   BOTTOM SCALLOP TRIM, CORNER CLOUDS & MASCOT
+   ===================================================== */
+
+.settingsScallopTrim {
+    position: absolute;
+    bottom: -3px;
+    left: 28px;
+    right: 28px;
+    height: 12px;
+    background: radial-gradient(circle at 10px 0, transparent 8px, #ffaec9 9px);
+    background-size: 20px 12px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.cornerCloudLeft {
+    position: absolute;
+    bottom: 2px;
+    left: 4px;
+    width: 42px;
+    height: 28px;
+    background: #ffd6e6;
+    border-radius: 20px 20px 0 0;
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.cornerCloudRight {
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+    width: 42px;
+    height: 28px;
+    background: #ffd6e6;
+    border-radius: 20px 20px 0 0;
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.settingsMascot {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.mascotSvg {
+    width: 78px;
+    height: 64px;
+    filter: drop-shadow(0 4px 8px rgba(255, 120, 175, 0.3));
+}
+
+.mascotHeartLeft,
+.mascotHeartRight {
+    color: #ff6ca2;
+    font-size: 15px;
+    animation: heartPulse 1.8s ease-in-out infinite alternate;
+}
+
+.mascotHeartRight {
+    animation-delay: 0.9s;
+}
+
+
+/* =====================================================
+   KEYFRAME ANIMATIONS
+   ===================================================== */
+
+@keyframes heartPulse {
+    0% { transform: scale(0.9); opacity: 0.75; }
+    100% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes settingsPop {
+    0% { opacity: 0; transform: scale(0.85) translateY(12px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes badgeFloat {
+    0% { transform: translateY(0) rotate(-2deg); }
+    100% { transform: translateY(-4px) rotate(2deg); }
+}
+
+
+/* =====================================================
+   MOBILE / RESPONSIVE BREAKPOINT
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .settingsCard {
+        width: 94vw;
+        padding: 28px 18px 44px 18px;
+        border-width: 4.5px;
+        border-radius: 28px;
+    }
+
+    .settingsHeader h2 {
+        font-size: 19px;
+    }
+
+    .settingsPawBadge {
+        top: 14px;
+        left: 14px;
+        width: 38px;
+        height: 44px;
+    }
+
+    #closeSettingsBtn {
+        top: 14px;
+        right: 14px;
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+
+    .settingRow {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .settingText {
+        font-size: 10px;
+    }
+
+    .settingTextCol {
+        font-size: 8px;
+    }
+
+    #musicVolume {
+        width: 110px;
+    }
+
+    .settingPillToggle {
+        width: 78px;
+        height: 34px;
+        font-size: 9px;
+    }
+
+    .settingPillToggle::after {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+
+    .settingsMascot {
+        bottom: -24px;
+        gap: 8px;
+    }
+
+    .mascotSvg {
+        width: 60px;
+        height: 50px;
+    }
+}
+
+
+/* =====================================================
+   CUTE GAME OVER / MATCH RESULT SCREEN
+   ===================================================== */
+
+#gameOverModal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 6000;
+    background: rgba(255, 220, 235, 0.45);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+#confettiCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.resultCard {
+    position: relative;
+    z-index: 2;
+    width: 490px;
+    max-width: 90vw;
+    padding: 38px 36px 36px 36px;
+    background: linear-gradient(180deg, #ffffff 0%, #fff3f8 100%);
+    border: 6px solid #ffaec9;
+    border-radius: 36px;
+    box-shadow:
+        0 20px 50px rgba(255, 120, 175, 0.38),
+        0 8px 0 #f5a3c4,
+        inset 0 0 0 3px #ffffff;
+    text-align: center;
+    animation: resultPopIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes resultPopIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.resultInnerBorder {
+    position: absolute;
+    inset: 12px;
+    border: 2.5px dashed #ffb8d6;
+    border-radius: 26px;
+    pointer-events: none;
+}
+
+.resultBowBadge {
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 70px;
+    z-index: 5;
+    filter: drop-shadow(0 4px 10px rgba(255, 120, 175, 0.4));
+    animation: bowBob 3s ease-in-out infinite;
+}
+
+@keyframes bowBob {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-3px);
+    }
+}
+
+.resultBowSvg {
+    width: 100%;
+    height: 100%;
+}
+
+.resultHeader {
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.resultTitleRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.resultDeco {
+    font-size: 22px;
+    color: #ff8fc0;
+    animation: sparklePulse 1.8s ease-in-out infinite;
+}
+
+.resultDeco.sparkleRight {
+    animation-delay: 0.9s;
+}
+
+@keyframes sparklePulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.25);
+        opacity: 1;
+    }
+}
+
+#resultTitle {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 28px;
+    color: #ff478f;
+    letter-spacing: 1px;
+    margin: 0;
+    text-shadow:
+        0 3px 0 #ffe0ee,
+        0 6px 14px rgba(255, 71, 143, 0.22);
+}
+
+#resultSubtitle {
+    font-family: 'Nunito', 'Segoe UI', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    color: #8a5770;
+    margin: 8px 0 2px 0;
+}
+
+.resultHeartSub {
+    font-size: 16px;
+    color: #ff8fc0;
+    animation: heartPulse 1.8s ease-in-out infinite;
+}
+
+.resultScoreBadge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 14px auto 18px auto;
+    background: #ffffff;
+    border: 3px solid #ffccd9;
+    border-radius: 22px;
+    padding: 7px 22px;
+    width: fit-content;
+    box-shadow: 0 4px 12px rgba(255, 150, 185, 0.15);
+}
+
+.scoreTeam {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.teamLabel {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    color: #ff6ea9;
+}
+
+.scoreNum {
+    font-family: 'Arial', sans-serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: #ff478f;
+    min-width: 18px;
+    text-align: center;
+}
+
+.scoreDivider {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffb8d4;
+}
+
+.resultButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.resultBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(180deg, #ffffff 0%, #ffe9f3 100%);
+    border: 3px solid #ff8fc0;
+    border-radius: 28px;
+    color: #ff478f;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow:
+        0 6px 0 #f4a5c5,
+        0 10px 20px rgba(255, 120, 175, 0.25);
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.resultBtn:hover {
+    background: linear-gradient(180deg, #ffffff 0%, #fff0f7 100%);
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 0 #f4a5c5,
+        0 12px 24px rgba(255, 120, 175, 0.3);
+}
+
+.resultBtn:active {
+    transform: translateY(4px);
+    box-shadow:
+        0 2px 0 #f4a5c5,
+        0 4px 10px rgba(255, 120, 175, 0.2);
+}
+
+.btnHeart {
+    font-size: 14px;
+    color: #ff70a8;
+    transition: transform 0.2s ease;
+}
+
+.resultBtn:hover .btnHeart {
+    transform: scale(1.2);
+}
+
+@media (max-width: 600px) {
+    .resultCard {
+        width: 90vw;
+        padding: 30px 20px 24px 20px;
+        border-width: 4px;
+        border-radius: 28px;
+    }
+
+    .resultBowBadge {
+        width: 90px;
+        height: 55px;
+        top: -30px;
+    }
+
+    #resultTitle {
+        font-size: 20px;
+    }
+
+    #resultSubtitle {
+        font-size: 16px;
+    }
+
+    .resultBtn {
+        height: 44px;
+        font-size: 11px;
+    }
+}
